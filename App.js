@@ -1,18 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, View } from 'react-native';
-// import Example from './Components/Example';
-import Names from './Components/Name';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet } from 'react-native';
+import ScreenA from './Components/ScreenA';
+import ScreenB from './Components/ScreenB';
 
 
 export default function App() {
+
+  const Stack = createStackNavigator();
+
+
   return (
-    <View style={styles.background}>
-      {/* <Counter /> */}
-      {/* <LearnStyles /> */}
-      {/* <SectionListed /> */}
-      <Names />
-      {/* <Example /> */}
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name='Screen_A'
+          component={ScreenA}
+        />
+        <Stack.Screen 
+          name='Screen_B'
+          component={ScreenB}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
